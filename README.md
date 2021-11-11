@@ -23,6 +23,9 @@ The files listed below are located in the main directory:
 - `pub.json` - configuration file used for manuscript preparation
 - `test.json` - test configuration file (useful to see how the code works without requiring intensive computation)
 - `reinfections_pub.Rproj` - R project file, which can be used for easy file navigation in interactive mode
+- `LICENSE` - license information
+- `README.md` - this file
+- `.gitignore` - specifies files and file types for version control to ignore
 
 ## Data files
 
