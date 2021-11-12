@@ -1,0 +1,44 @@
+# This file is made available under a CC-BY-NC 4.0 International License.
+# Details of the license can be found at
+# <https://creativecommons.org/licenses/by-nc/4.0/legalcode>. 
+# 
+# Giving appropriate credit includes citation of the related publication and
+# providing a link to the repository:
+# 
+# Citation: Pulliam, JRC, C van Schalkwyk, N Govender, A von Gottberg, C Cohen,
+# MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) _SARS-CoV-2 reinfection
+# trends in South Africa: analysis of routine surveillance data_. _medRxiv_
+# <https://www.medrxiv.org/content/10.1101/2021.11.11.21266068>
+# 
+# Repository: <https://github.com/jrcpulliam/reinfections>
+
+suppressPackageStartupMessages({
+  require(data.table)
+})
+
+.debug <- ''
+.args <- if (interactive()) sprintf(c(
+  file.path('data', 'ts_data_for_analysis.RDS'), # input
+  file.path('pub.json'),
+  file.path('utils', 'wave_defs_pub.RDS') # output
+), .debug[1]) else commandArgs(trailingOnly = TRUE)
+
+ts <- readRDS(.args[1]) # Use to set wave dates as >15% of wave peak
+
+configpth <- .args[2]
+attach(jsonlite::read_json(configpth))
+
+target <- tail(.args, 1)
+
+peak1 <- ts[date <= '2020-09-15', max(ma_cnt, na.rm = TRUE)]
+peak2 <- ts[date <= '2021-02-15', max(ma_cnt, na.rm = TRUE)]
+peak3 <- ts[date > '2021-02-15', max(ma_cnt, na.rm = TRUE)]
+
+ts[date <= '2020-09-15' & ma_cnt >= wave_thresh * peak1, wave := 'W1']
+ts[date > '2020-09-15' & date <= '2021-02-15' & ma_cnt >= wave_thresh * peak2, wave := 'W2']
+ts[date > '2021-02-15' & ma_cnt >= wave_thresh * peak3, wave := 'W3']
+
+waves <- ts[!is.na(wave), .(min_date = min(date), max_date = max(date)), keyby = wave]
+waves[, col := c('#785EF0', '#DC267F', '#FE6100')]
+
+saveRDS(waves, file = target)

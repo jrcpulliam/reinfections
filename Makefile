@@ -37,7 +37,7 @@ utils/fit_fxn_null.RData: code/fit_fxn_null.R
 utils/plotting_fxns.RData: code/plotting_fxns.R
 	${R}
 
-utils/wave_defs.RDS: code/wave_defs.R data/ts_data.csv pub.json
+utils/wave_defs.RDS: code/wave_defs.R data/ts_data_for_analysis.RDS pub.json
 	${R}
 
 all_utils: utils/plotting_fxns.RData utils/emp_haz_fxn.RDS \
