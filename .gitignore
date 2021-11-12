@@ -1,3 +1,6 @@
+utils/*.RData
+utils/*.RDS
+
 # History files
 .Rhistory
 .Rapp.history
