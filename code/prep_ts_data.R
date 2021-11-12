@@ -30,6 +30,7 @@ attach(jsonlite::read_json(configpth))
 
 target <- tail(.args, 1)
 
+ts[, date := as.Date(date)]
 ts[, cnt := inc_1]
 ts[, reinf := inc_2]
 ts[, ma_cnt := frollmean(cnt, window_days)]

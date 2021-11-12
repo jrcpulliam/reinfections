@@ -13,6 +13,7 @@ This repository provides code and data for the analyses presented in:
 
 The following packages are required to run the code in this repository (version numbers indicate the versions used for manuscript preparation):
 
+- data.table (1.14.0)
 - TO BE ADDED
 
 ## Pipeline files

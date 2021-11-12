@@ -45,7 +45,12 @@ utils/fit_fxn_null.RData utils/plotting_fxns.RData utils/wave_defs.RDS
 
 ### DESCRIPTIVE ANALYSIS
 
-# TO BE ADDED
+# Figure 1
+output/ts_plot.RDS output/ts_plot.png: code/ts_plot.R data/ts_data_for_analysis.RDS \
+utils/wave_defs.RDS utils/plotting_fxns.RData
+	${R}
+
+# MORE TO BE ADDED
 
 ### APPROACH 1
 
@@ -55,3 +60,4 @@ utils/fit_fxn_null.RData utils/plotting_fxns.RData utils/wave_defs.RDS
 
 # TO BE ADDED
 
+all_plots: output/ts_plot.png
