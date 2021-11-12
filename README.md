@@ -8,8 +8,7 @@ This repository provides code and data for the analyses presented in:
 
 ## Software requirements
 
-- R - a statistical programming language (download links for [Windows](http://c
-ran.r-project.org/bin/windows/base/), [Linux](http://cran.r-project.org/bin/lin
+- R - a statistical programming language (download links for [Windows](http://cran.r-project.org/bin/windows/base/), [Linux](http://cran.r-project.org/bin/lin
 ux/), and [MacOS](http://cran.r-project.org/bin/macosx/))
 - R Studio - a user interface for R that will be needed for computer exercises ([download link](http://www.rstudio.com/products/rstudio/download/))
 
