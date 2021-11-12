@@ -50,6 +50,11 @@ output/ts_plot.RDS output/ts_plot.png: code/ts_plot.R data/ts_data_for_analysis.
 utils/wave_defs.RDS utils/plotting_fxns.RData
 	${R}
 
+# Figure 2 (panels B and C)
+output/demog_plot.RDS output/demog_plot.png: code/demog_plot.R \
+data/demog_data_for_display.RData
+	${R}
+
 # MORE TO BE ADDED
 
 ### APPROACH 1
