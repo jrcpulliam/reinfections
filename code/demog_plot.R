@@ -1,3 +1,20 @@
+# This file is made available under a CC-BY-NC 4.0 International License.
+# Details of the license can be found at
+# <https://creativecommons.org/licenses/by-nc/4.0/legalcode>. 
+# 
+# Giving appropriate credit includes citation of the related publication and
+# providing a link to the repository:
+# 
+# Citation: Pulliam, JRC, C van Schalkwyk, N Govender, A von Gottberg, C Cohen,
+# MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) _SARS-CoV-2 reinfection
+# trends in South Africa: analysis of routine surveillance data_. _medRxiv_
+# <https://www.medrxiv.org/content/10.1101/2021.11.11.21266068>
+# 
+# Repository: <https://github.com/jrcpulliam/reinfections>
+#
+# The functions in this file are modified from code written by Carl A.B. Pearson
+# (https://github.com/pearsonca) and shared with his permission.
+
 suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)

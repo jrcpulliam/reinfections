@@ -68,6 +68,13 @@ data/ts_data_for_analysis.RDS pub.json utils/plotting_fxns.RData
 
 ### APPROACH 2
 
-# TO BE ADDED
+# ANALYSIS TO BE ADDED
 
-all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png
+# Figure 4
+output/emp_haz_plot.RDS output/emp_haz_plot.png: code/emp_haz_plot.R \
+data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS \
+utils/plotting_fxns.RData
+		Rscript $^ 90 $@
+
+all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png \
+output/emp_haz_plot.png
