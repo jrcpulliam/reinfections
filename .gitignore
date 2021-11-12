@@ -1,5 +1,6 @@
 utils/*.RData
 utils/*.RDS
+data/*.RDS
 
 # History files
 .Rhistory

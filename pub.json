@@ -4,6 +4,8 @@
   "use_w3_max_date": "2021-07-15",
   "wave_thresh": 0.15,
   "sa_pop": 59622350,
+  "window_days": 7,
+  "cutoff": 90,
   "eh": {
     "p_obs": 0.1,
     "p_obs_2": 0.5
