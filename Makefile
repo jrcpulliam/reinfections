@@ -21,10 +21,10 @@ Rstar = Rscript $^ $* $@
 data/ts_data_for_analysis.RDS: code/prep_ts_data.R data/ts_data.csv pub.json
 	${R}
 
-data/demog_data.RData: code/prep_demog_data.R data/demog_data.csv
+data/demog_data_for_display.RData: code/prep_demog_data.R data/demog_data.csv
 	${R}
 
-all_data: data/ts_data_for_analysis.RDS data/demog_data.RData
+all_data: data/ts_data_for_analysis.RDS data/demog_data_for_display.RData
 
 ### UTILITY FUNCTIONS
 

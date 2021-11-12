@@ -1,6 +1,7 @@
 utils/*.RData
 utils/*.RDS
 data/*.RDS
+data/*.RData
 output/*.png
 
 # History files
