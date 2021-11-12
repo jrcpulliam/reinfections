@@ -11,9 +11,6 @@
 # <https://www.medrxiv.org/content/10.1101/2021.11.11.21266068>
 # 
 # Repository: <https://github.com/jrcpulliam/reinfections>
-#
-# The functions in this file are modified from code written by Carl A.B. Pearson
-# (https://github.com/pearsonca) and shared with his permission.
 
 suppressPackageStartupMessages({
   library(data.table)
