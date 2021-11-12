@@ -29,4 +29,7 @@ target <- tail(.args, 1)
 tab_prov <- dat[, .(no_reinf = sum(no_reinf), reinf = sum(reinf), total = sum(total)), by = province]
 tab_age_sex <- dat[, .(no_reinf = sum(no_reinf), reinf = sum(reinf), total = sum(total)), by = .(agegrp5, sex)]
 
+tmp <- cut(seq(2.5, 85, 5), c(seq(0, 80, 5), Inf))
+tab_age_sex[, agegrp5 := factor(agegrp5, levels = levels(tmp))]
+
 save(tab_prov, tab_age_sex, file = target)
