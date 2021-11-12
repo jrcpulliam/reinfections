@@ -9,7 +9,7 @@ suppressPackageStartupMessages({
   file.path('data', 'ts_data_for_analysis.RDS'), # input
   file.path('utils', 'wave_defs.RDS'),
   file.path('utils', 'plotting_fxns.RData'),
-  file.path('output', 'ts_plot.RDS') # output
+  file.path('output', 'ts_plot.png') # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
 ts <- readRDS(.args[1])
@@ -75,23 +75,5 @@ fig1 <- (fig1a / fig1b / fig1c
 if(grepl('RDS', target)){
   saveRDS(fig1, file = target)
 }else{
-  if(grepl('elig_plot', target)){
-    fig1b <- (fig1b
-              & theme_minimal()
-              & theme(panel.border = element_rect(colour = "black", fill = NA, size = 0.25)
-                      , panel.grid.minor = element_blank())
-              & scale_x_Ms() 
-              & theme(panel.grid.major.x = element_blank()
-                      , axis.ticks = element_blank()
-                      , panel.grid.minor.x = element_line(color = 'lightgrey', size = .5)
-                      , panel.grid.minor.y = element_blank()
-              ) 
-              & geom_vline(xintercept = as.Date('2021-01-01')
-                           , linetype = 2, size = .5, color = '#111111') 
-              & geom_text(aes(label = year, y = 0), data = ts[, .(year = format(date, '%Y'), date)][, .(date = min(date)), by = year], vjust = -31, hjust = 'left', nudge_x = c(0, 14))
-    )
-    ggsave(fig1b, filename = target, width = 15, height = 9, units = 'cm')
-  }else{
-    ggsave(fig1, filename = target, width = 7, height = 7)
-  }
+  ggsave(fig1, filename = target, width = 7, height = 7)
 }
