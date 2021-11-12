@@ -59,10 +59,15 @@ data/demog_data_for_display.RData
 
 ### APPROACH 1
 
-# TO BE ADDED
+# ANALYSIS TO BE ADDED
+
+# Figure 3
+output/sim_plot.RDS output/sim_plot.png: code/sim_plot.R output/sim_90_null.RDS \
+data/ts_data_for_analysis.RDS pub.json utils/plotting_fxns.RData
+	${R}
 
 ### APPROACH 2
 
 # TO BE ADDED
 
-all_plots: output/ts_plot.png
+all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png
