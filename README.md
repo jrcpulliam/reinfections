@@ -17,14 +17,15 @@ If you have questions or comments, please contact the repository maintainer, Jul
 
 The following R packages are required to run the code in this repository (version numbers indicate the versions used for manuscript preparation):
 
-- data.table (1.14.0)
 - coda (0.19-4)
+- colorspace (2.0-1)
+- data.table (1.14.0)
 - ggplot2 (3.3.4)
-- patchwork (1.1.1)
 - hexbin (1.28.2)
+- jsonlite (1.7.2)
 - lme4 (1.1-27.1)
 - Matrix (1.3-4)
-- MORE TO BE ADDED?
+- patchwork (1.1.1)
 
 ## Pipeline files
 
