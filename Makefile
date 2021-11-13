@@ -55,8 +55,6 @@ output/demog_plot.RDS output/demog_plot.png: code/demog_plot.R \
 data/demog_data_for_display.RData
 	${R}
 
-# MORE TO BE ADDED
-
 ### APPROACH 1
 
 # ANALYSIS TO BE ADDED
@@ -75,11 +73,17 @@ output/posterior_90_null.RData pub.json
 
 # ANALYSIS TO BE ADDED
 
+output/reconstructed_dat_for_reg.RDS: code/reconstruct_data_for_reg.R \
+data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
+	Rscript $^ 90 $@
+
+reg_out: output/reconstructed_dat_for_reg.RDS
+
 # Figure 4
 output/emp_haz_plot.RDS output/emp_haz_plot.png: code/emp_haz_plot.R \
 data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS \
 utils/plotting_fxns.RData
-		Rscript $^ 90 $@
+	Rscript $^ 90 $@
 
 all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png \
 output/emp_haz_plot.png output/convergence_plot.png
