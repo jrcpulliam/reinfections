@@ -13,7 +13,6 @@
 # Repository: <https://github.com/jrcpulliam/reinfections>
 
 R = Rscript $^ $@
-Rstar = Rscript $^ $* $@
 
 ### DATA PREPARATION (create RDS / RData files for analysis / plotting
 ### from CSV files provided)
@@ -58,12 +57,25 @@ data/demog_data_for_display.RData
 ### APPROACH 1
 
 # NOTE: Change test.json to pub.json to do a full run; this will overwrite
-# the version of output/posterior_90_null.RData provided in the repository
+# the version of output/posterior_90_null.RData provided in the repository.
 output/posterior_90_null.RData: code/mcmc_fit.R data/ts_data_for_analysis.RDS \
 utils/fit_fxn_null.RData test.json
 	${R}
 
-# SIMULATION TO BE ADDED
+# NOTE: Change test.json to pub.json to do a full run; this will overwrite
+# the version of output/sim_90_null.RDS provided in the repository.
+output/sim_90_null.RDS: code/sim_null.R output/posterior_90_null.RData \
+data/ts_data_for_analysis.RDS utils/fit_fxn_null.RData test.json
+	${R}
+
+sim_out: output/posterior_90_null.RData output/sim_90_null.RDS
+
+# NOTE: Change test.json to pub.json to run simulations for full posterior.
+# This script only runs 1 simulation per parameter set due to long computational
+# time (ignores n_sims_per_param defined in the json configuration files).
+output/sim_90_null_dyn.RDS: code/sim_null_dyn.R output/posterior_90_null.RData \
+data/ts_data_for_analysis.RDS utils/fit_fxn_null.RData test.json
+	${R}
 
 # Figure 3
 output/sim_plot.RDS output/sim_plot.png: code/sim_plot.R output/sim_90_null.RDS \
