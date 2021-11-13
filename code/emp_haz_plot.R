@@ -25,7 +25,6 @@ suppressPackageStartupMessages({
   file.path('pub.json'),
   file.path('utils', 'wave_defs.RDS'),
   file.path('utils', 'plotting_fxns.RData'),
-  '90', 
   file.path('output', 'emp_haz_plot.png') # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
@@ -41,8 +40,6 @@ attach(jsonlite::read_json(configpth))
 waves <- readRDS(.args[4])
 
 load(.args[5])
-
-cutoff <- as.numeric(.args[6])
 
 ehdt <- emp_haz(ts, eh$p_obs, eh$p_obs_2)
 
