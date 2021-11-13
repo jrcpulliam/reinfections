@@ -86,7 +86,7 @@ _Approach 1_:
 _Approach 2_:
 
 - `emp_haz_plot.R` - creates empirical hazards plot using approach 2 (Figure 4) from the manuscript
-- `reconstruct_data.R` - TO BE ADDED
+- `reconstruct_data_for_reg.R` - creates reconstructed data set using model for approach 2, to be used in regression analysis
 - `reg_out.R` - TO BE ADDED
 - `sens_an.R` - TO BE ADDED
 - `sens_an_plot.R` - TO BE ADDED
