@@ -25,7 +25,10 @@ data/demog_data_for_display.RData: code/prep_demog_data.R data/demog_data.csv
 
 all_data: data/ts_data_for_analysis.RDS data/demog_data_for_display.RData
 
-### UTILITY FUNCTIONS
+### UTILITIES
+
+utils/sessionInfo.RDS: code/install.R
+	${R}
 
 utils/emp_haz_fxn.RDS: code/empirical_hazard_fxn.R
 	${R}
@@ -39,7 +42,7 @@ utils/plotting_fxns.RData: code/plotting_fxns.R
 utils/wave_defs.RDS: code/wave_defs.R data/ts_data_for_analysis.RDS pub.json
 	${R}
 
-all_utils: utils/plotting_fxns.RData utils/emp_haz_fxn.RDS \
+all_utils: utils/sessionInfo.RDS utils/plotting_fxns.RData utils/emp_haz_fxn.RDS \
 utils/fit_fxn_null.RData utils/plotting_fxns.RData utils/wave_defs.RDS
 
 ### DESCRIPTIVE ANALYSIS
