@@ -77,8 +77,8 @@ _Descriptive_:
 
 _Approach 1_:
 
-- `mcmc_fit.R` - TO BE ADDED
-- `sim_null.R` - TO BE ADDED
+- `mcmc_fit.R` - implements MCMC fitting for approach 1
+- `sim_null.R` - simulates projections from the null model for approach 1
 - `sim_null_dyn.R` - TO BE ADDED (Note: Not used; see file for additional information.)
 - `sim_plot.R` - creates plot of observed data with model fits and projections using approach 1 (Figure 3)
 - `convergence_plot.R` - creates plot of convergence diagnostics using output of the MCMC fitting procedure (Figure S4)

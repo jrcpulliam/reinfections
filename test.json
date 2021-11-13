@@ -3,6 +3,7 @@
   "max_date": "2021-06-30",
   "use_w3_max_date": "2021-07-15",
   "wave_thresh": 0.15,
+  "cutoff": 90,
   "mcmc": {
     "rand_init": true,
     "adaptive": false,

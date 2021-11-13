@@ -6,6 +6,7 @@ output/*.png
 output/reconstructed_dat_for_reg.RDS
 output/reg_out.RDS
 output/emp_haz_sens_an.RDS
+output/posterior_90_null_test.RData
 
 # History files
 .Rhistory

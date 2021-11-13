@@ -57,7 +57,13 @@ data/demog_data_for_display.RData
 
 ### APPROACH 1
 
-# ANALYSIS TO BE ADDED
+# NOTE: Change test.json to pub.json to do a full run; this will overwrite
+# the version of output/posterior_90_null.RData provided in the repository
+output/posterior_90_null.RData: code/mcmc_fit.R data/ts_data_for_analysis.RDS \
+utils/fit_fxn_null.RData test.json
+	${R}
+
+# SIMULATION TO BE ADDED
 
 # Figure 3
 output/sim_plot.RDS output/sim_plot.png: code/sim_plot.R output/sim_90_null.RDS \
@@ -70,8 +76,6 @@ output/posterior_90_null.RData pub.json
 	${R}
 
 ### APPROACH 2
-
-# ANALYSIS TO BE ADDED
 
 output/reconstructed_dat_for_reg.RDS: code/reconstruct_data_for_reg.R \
 data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
@@ -86,16 +90,19 @@ output/emp_haz_sens_an.RDS: code/sens_an.R data/ts_data_for_analysis.RDS \
 utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
 	Rscript $^ 90 $@
 
-output/emp_haz_sens_an_plot.RDS output/emp_haz_sens_an_plot.png: \
-code/sens_an_plot.R output/emp_haz_sens_an.RDS \
-utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
-	Rscript $^ 90 $@
-
 # Figure 4
 output/emp_haz_plot.RDS output/emp_haz_plot.png: code/emp_haz_plot.R \
 data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS \
 utils/plotting_fxns.RData
 	Rscript $^ 90 $@
+
+# Figure S5
+output/emp_haz_sens_an_plot.RDS output/emp_haz_sens_an_plot.png: \
+code/sens_an_plot.R output/emp_haz_sens_an.RDS \
+utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
+	Rscript $^ 90 $@
+
+### PLOTS
 
 all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png \
 output/emp_haz_plot.png output/convergence_plot.png output/emp_haz_sens_an_plot.png
