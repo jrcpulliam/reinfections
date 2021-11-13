@@ -22,7 +22,6 @@ suppressPackageStartupMessages({
   file.path('utils', 'emp_haz_fxn.RDS'),
   file.path('pub.json'),
   file.path('utils', 'wave_defs.RDS'),
-  '90', 
   file.path('output', 'emp_haz_sens_an.RDS') # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
@@ -36,8 +35,6 @@ configpth <- .args[3]
 attach(jsonlite::read_json(configpth))
 
 waves <- readRDS(.args[4])
-
-cutoff <- as.numeric(.args[5])
 
 dt <- data.table(expand.grid(p_obs = seq(.01,1,.01), p_obs_2 = seq(.01,1,.01)))
 
