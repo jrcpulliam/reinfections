@@ -13,7 +13,7 @@ If you have questions or comments, please contact the repository maintainer, Jul
 ## Software requirements
 
 - R - a statistical programming language (download links for [Windows](http://cran.r-project.org/bin/windows/base/), [Linux](http://cran.r-project.org/bin/linux/), and [MacOS](http://cran.r-project.org/bin/macosx/))
-- R Studio - a user interface for R that will be needed for computer exercises ([download link](http://www.rstudio.com/products/rstudio/download/))
+- R Studio (recommended)- a user interface for R ([download link](http://www.rstudio.com/products/rstudio/download/))
 
 The following R packages are required to run the code in this repository (version numbers indicate the versions used for manuscript preparation):
 
