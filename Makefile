@@ -82,6 +82,15 @@ output/reg_out.RDS: code/reg_out.R output/reconstructed_dat_for_reg.RDS
 
 reg_out: output/reconstructed_dat_for_reg.RDS output/reg_out.RDS
 
+output/emp_haz_sens_an.RDS: code/sens_an.R data/ts_data_for_analysis.RDS \
+utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
+	Rscript $^ 90 $@
+
+output/emp_haz_sens_an_plot.RDS output/emp_haz_sens_an_plot.png: \
+code/sens_an_plot.R output/emp_haz_sens_an.RDS \
+utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
+	Rscript $^ 90 $@
+
 # Figure 4
 output/emp_haz_plot.RDS output/emp_haz_plot.png: code/emp_haz_plot.R \
 data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS \
@@ -89,4 +98,4 @@ utils/plotting_fxns.RData
 	Rscript $^ 90 $@
 
 all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png \
-output/emp_haz_plot.png output/convergence_plot.png
+output/emp_haz_plot.png output/convergence_plot.png output/emp_haz_sens_an_plot.png

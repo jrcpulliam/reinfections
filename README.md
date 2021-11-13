@@ -85,11 +85,11 @@ _Approach 1_:
 
 _Approach 2_:
 
-- `emp_haz_plot.R` - creates empirical hazards plot using approach 2 (Figure 4) from the manuscript
+- `emp_haz_plot.R` - creates empirical hazards plot using approach 2 (Figure 4)
 - `reconstruct_data_for_reg.R` - creates reconstructed data set using model for approach 2, to be used in regression analysis
-- `reg_out.R` - TO BE ADDED
-- `sens_an.R` - TO BE ADDED
-- `sens_an_plot.R` - TO BE ADDED
+- `reg_out.R` - conducts Poisson regression analysis and outputs estimates of coefficients with 95% confidence intervals
+- `sens_an.R` - conducts sensitivity analysis to assumptions about observation probabilities for approach 2
+- `sens_an_plot.R` - creates sensitivity analysis plot (Figure S5)
 
 ## Output files
 
