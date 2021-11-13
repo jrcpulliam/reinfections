@@ -4,6 +4,7 @@ data/*.RDS
 data/*.RData
 output/*.png
 output/reconstructed_dat_for_reg.RDS
+output/reg_out.RDS
 
 # History files
 .Rhistory
