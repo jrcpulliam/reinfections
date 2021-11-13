@@ -66,6 +66,11 @@ output/sim_plot.RDS output/sim_plot.png: code/sim_plot.R output/sim_90_null.RDS 
 data/ts_data_for_analysis.RDS pub.json utils/plotting_fxns.RData
 	${R}
 
+# Figure S4
+output/convergence_plot.RDS output/convergence_plot.png: code/convergence_plot.R \
+output/posterior_90_null.RData pub.json
+	${R}
+
 ### APPROACH 2
 
 # ANALYSIS TO BE ADDED
@@ -77,4 +82,4 @@ utils/plotting_fxns.RData
 		Rscript $^ 90 $@
 
 all_plots: output/ts_plot.png output/demog_plot.png output/sim_plot.png \
-output/emp_haz_plot.png
+output/emp_haz_plot.png output/convergence_plot.png
