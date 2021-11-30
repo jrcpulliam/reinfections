@@ -10,6 +10,10 @@ output/posterior_90_null_test.RData
 output/sim_90_null_test.RDS
 output/sim_90_null_dyn.RDS
 output/sim_90_null_dyn_test.RDS
+*.pdf
+*.html
+*.docx
+*.log
 TODO.md
 
 # History files
