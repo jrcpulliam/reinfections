@@ -1,3 +1,5 @@
+> NOTE: This repository is being updated with new data on reinfections since the emergence of the Omicron variant in South Africa. This notice will be removed when the new data are released.
+
 # SARS-CoV-2 reinfection trends in South Africa: analysis of routine surveillance data 
 
 This repository provides code and data for the analyses presented in:
