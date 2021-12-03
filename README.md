@@ -1,4 +1,4 @@
-> NOTE: This repository is being updated with new data on reinfections since the emergence of the Omicron variant in South Africa. This notice will be removed when the repository is fully updated. In the meantime, updated data (only) are available on Zenodo at 10.5281/zenodo.5745339.
+> NOTE: This repository is being updated with new data on reinfections since the emergence of the Omicron variant in South Africa. This notice will be removed when the repository is fully updated. In the meantime, updated data (only) are available on Zenodo at DOI: [10.5281/zenodo.5745339](https://zenodo.org/record/5745339).
 
 # SARS-CoV-2 reinfection trends in South Africa: analysis of routine surveillance data 
 
