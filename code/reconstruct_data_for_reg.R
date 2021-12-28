@@ -47,6 +47,7 @@ dat <- melt(dat, id.vars = 'date', variable.factor = FALSE)[order(date)]
 dat[between(date, waves[wave == 'W1', min_date], waves[wave == 'W1', max_date]), wave := 'W1']
 dat[between(date, waves[wave == 'W2', min_date], waves[wave == 'W2', max_date]), wave := 'W2']
 dat[between(date, waves[wave == 'W3', min_date], waves[wave == 'W3', max_date]), wave := 'W3']
+dat[date > use_omicron_date, wave := 'X4']
 
 out <- dat[!is.na(wave), .(date
                            , class = substr(variable, 1, 3)
