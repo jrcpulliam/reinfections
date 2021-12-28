@@ -4,7 +4,7 @@
 
 This repository provides code and data for the analyses presented in:
 
-> Pulliam, JRC, C van Schalkwyk, N Govender, A von Gottberg, C Cohen, MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) [_SARS-CoV-2 reinfection trends in South Africa: analysis of routine surveillance data_](https://www.medrxiv.org/content/10.1101/2021.11.11.21266068). _medRxiv_ DOI: 10.1101/2021.11.11.21266068
+> Pulliam, JRC, C van Schalkwyk, N Govender, A von Gottberg, C Cohen, MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) [_Increased risk of SARS-CoV-2 reinfection associated with emergence of the Omicron variant in South Africa_](https://www.medrxiv.org/content/10.1101/2021.11.11.21266068v2). _medRxiv_ DOI: 10.1101/2021.11.11.21266068
 
 **The materials in this repository are made available under a CC-BY-NC 4.0 International License. See the [LICENSE](./LICENSE) file for additional information.**
 

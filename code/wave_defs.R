@@ -36,7 +36,7 @@ peak3 <- ts[date > '2021-02-15', max(ma_cnt, na.rm = TRUE)]
 
 ts[date <= '2020-09-15' & ma_cnt >= wave_thresh * peak1, wave := 'W1']
 ts[date > '2020-09-15' & date <= '2021-02-15' & ma_cnt >= wave_thresh * peak2, wave := 'W2']
-ts[date > '2021-02-15' & ma_cnt >= wave_thresh * peak3, wave := 'W3']
+ts[date > '2021-02-15' & date <= '2021-10-15' & ma_cnt >= wave_thresh * peak3, wave := 'W3']
 
 waves <- ts[!is.na(wave), .(min_date = min(date), max_date = max(date)), keyby = wave]
 waves[, col := c('#785EF0', '#DC267F', '#FE6100')]

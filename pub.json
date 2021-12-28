@@ -1,11 +1,14 @@
 {
-  "fit_through": "2020-09-30",
-  "max_date": "2021-06-30",
-  "use_w3_max_date": "2021-07-15",
+  "fit_through": "2021-02-28",
+  "max_date": "2021-11-27",
+  "use_w3_max_date": null,
+  "use_omicron_date": "2021-10-31",
+  "old_fit_date": "2020-09-30",
+  "old_max_date": "2021-06-30",
   "wave_thresh": 0.15,
-  "sa_pop": 59622350,
-  "window_days": 7,
   "cutoff": 90,
+  "window_days": 7,
+  "sa_pop": 59622350,
   "eh": {
     "p_obs": 0.1,
     "p_obs_2": 0.5
@@ -14,8 +17,8 @@
     "rand_init": true,
     "adaptive": false,
     "n_chains": 4,
-    "burnin": 2000,
-    "n_iter": 100000,
+    "burnin": 1000,
+    "n_iter": 10000,
     "n_posterior": 1500
   },
   "n_sims_per_param": 100

@@ -31,7 +31,7 @@ target <- tail(.args, 1)
 fig2b <- (ggplot(tab_prov[province != 'UNKNOWN']) 
           + geom_bar(aes(x = province, y = (100 * reinf / total)), stat = 'identity', fill = '4a4a4a', width = .8)
           + theme_minimal()
-          + ylim(0, 1.5)
+          + ylim(0, NA)
           + geom_hline(yintercept = tab_prov[, sum(reinf) / sum(total) * 100], linetype = 2)
           + theme_minimal()
           + theme(axis.line = element_blank(),
