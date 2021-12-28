@@ -1,0 +1,8 @@
+Output files will be stored in this subdirectory but will be ignored by git (edit the .gitignore file in the main directory to change this default behavior). Note that some output files are large and should not be committed. The following two files have been removed from the repository's history as of commit `bb9beaf`:
+
+- `posterior_90_null.RData` - posterior samples from the MCMC fitting procedure
+    - version 1 of this file (associated with [version 1 of the preprint]( https://www.medrxiv.org/content/10.1101/2021.11.11.21266068v1)) is provided as part of the first release of this reposiotry: <https://github.com/jrcpulliam/reinfections/releases/tag/v1.0>
+    - version 2 of this file (associated with [version 2 of the preprint]( https://www.medrxiv.org/content/10.1101/2021.11.11.21266068v2)) is available for download [here](https://zenodo.org/record/5745339/files/posterior_90_null_pub.RData?download=1)
+- `sim_90_null.RDS` - simulation results
+    - version 1 of this file (associated with [version 1 of the preprint]( https://www.medrxiv.org/content/10.1101/2021.11.11.21266068v1)) is provided as part of the first release of this reposiotry: <https://github.com/jrcpulliam/reinfections/releases/tag/v1.0>
+    - version 2 of this file (associated with [version 2 of the preprint]( https://www.medrxiv.org/content/10.1101/2021.11.11.21266068v2)) is available for download [here](https://zenodo.org/record/5745339/files/sim_90_null_pub.RDS?download=1)
