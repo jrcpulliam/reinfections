@@ -6,8 +6,9 @@
 # providing a link to the repository:
 # 
 # Citation: Pulliam, JRC, C van Schalkwyk, N Govender, A von Gottberg, C Cohen,
-# MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) _SARS-CoV-2 reinfection
-# trends in South Africa: analysis of routine surveillance data_. _medRxiv_
+# MJ Groome, J Dushoff, K Mlisana, and H Moultrie. (2021) _Increased risk of
+# SARS-CoV-2 reinfection associated with emergence of the Omicron variant in
+# South Africa_. _medRxiv_
 # <https://www.medrxiv.org/content/10.1101/2021.11.11.21266068>
 # 
 # Repository: <https://github.com/jrcpulliam/reinfections>
