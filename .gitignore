@@ -7,9 +7,11 @@ output/reconstructed_dat_for_reg.RDS
 output/reg_out.RDS
 output/emp_haz_sens_an.RDS
 output/posterior_90_null_test.RData
+output/posterior_90_null.RData
 output/sim_90_null_test.RDS
 output/sim_90_null_dyn.RDS
 output/sim_90_null_dyn_test.RDS
+output/sim_90_null.RDS
 *.pdf
 *.html
 *.docx
