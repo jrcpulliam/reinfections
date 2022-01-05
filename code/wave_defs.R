@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
 .args <- if (interactive()) sprintf(c(
   file.path('data', 'ts_data_for_analysis.RDS'), # input
   file.path('pub.json'),
-  file.path('utils', 'wave_defs_pub.RDS') # output
+  file.path('utils', 'wave_defs.RDS') # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
 ts <- readRDS(.args[1]) # Use to set wave dates as >15% of wave peak

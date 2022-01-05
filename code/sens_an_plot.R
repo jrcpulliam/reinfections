@@ -93,12 +93,19 @@ max_p_obs <- 1/6.3
 min_rh <- 0.13
 max_rh <- 0.19
 
+poly_tmp <- dt[
+  round(p_obs, 2) >= round(min_p_obs, 2)][
+    round(mean_rh_W1,2) >= min_rh,][
+      round(p_obs, 2) <= round(max_p_obs, 2)][
+        round(mean_rh_W1,2) <= max_rh
+      ]
+
 poly <- rbind(
-  dt[round(p_obs, 2) == round(min_p_obs, 2)][round(mean_rh_W1,2) == min_rh, .(unique(p_obs), max(p_obs_2))]
-  , dt[round(p_obs, 2) == round(min_p_obs, 2)][round(mean_rh_W1,2) == max_rh, .(unique(p_obs), min(p_obs_2))]
-  , dt[round(p_obs, 2) == round(max_p_obs, 2)][round(mean_rh_W1,2) == max_rh, .(unique(p_obs), min(p_obs_2))]
-  , dt[round(p_obs, 2) == round(max_p_obs, 2)][round(mean_rh_W1,2) == min_rh, .(unique(p_obs), max(p_obs_2))]
-  , dt[round(p_obs, 2) == round(min_p_obs, 2)][round(mean_rh_W1,2) == min_rh, .(unique(p_obs), max(p_obs_2))]
+  poly_tmp[p_obs == min(p_obs)][mean_rh_W1 == min(mean_rh_W1), .(unique(p_obs), max(p_obs_2))]
+  , poly_tmp[p_obs == min(p_obs)][mean_rh_W1 == max(mean_rh_W1), .(unique(p_obs), min(p_obs_2))]
+  , poly_tmp[p_obs == max(p_obs)][mean_rh_W1 == max(mean_rh_W1), .(unique(p_obs), min(p_obs_2))]
+  , poly_tmp[p_obs == max(p_obs)][mean_rh_W1 == min(mean_rh_W1), .(unique(p_obs), max(p_obs_2))]
+  , poly_tmp[p_obs == min(p_obs)][mean_rh_W1 == min(mean_rh_W1), .(unique(p_obs), max(p_obs_2))]
 )
 names(poly) <- c('p_obs', 'p_obs_2')
 

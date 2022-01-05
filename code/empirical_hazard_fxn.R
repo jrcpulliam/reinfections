@@ -19,7 +19,7 @@ suppressPackageStartupMessages({
 
 .debug <- 'utils'
 .args <- if (interactive()) sprintf(c(
-  file.path('%s', 'empirical_hazard_fxn.RDS') # output
+  file.path('%s', 'emp_haz_fxn.RDS') # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
 target <- tail(.args, 1)
