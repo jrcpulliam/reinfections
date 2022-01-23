@@ -30,6 +30,7 @@ req <- c('coda' # for wrangling MCMC output
          , 'lme4' # for linear mixed effects regression models
          , 'Matrix' # lme4 dependency
          , 'patchwork' # for combining figure panels
+         , 'uniformly' # for sampling from plausible range of obs probs (polygon)
 ) # packages required to run code
 toInstall <- req[!is.element(req, packs)] # packages needing installation
 
