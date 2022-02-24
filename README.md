@@ -26,6 +26,7 @@ The following R packages are required to run the code in this repository (versio
 - lme4 (1.1-27.1)
 - Matrix (1.3-4)
 - patchwork (1.1.1)
+- uniformly (0.1.0)
 
 ## Pipeline files
 
@@ -43,7 +44,7 @@ The files listed below are located in the main directory:
 
 The files listed below are located in the `data` subdirectory:
 
-- `ts_data.csv` - national daily time series of newly detected putative primary infections (`inc_1`) and suspected reinfections (`inc_2`) by specimen receipt date (`date`)
+- `ts_data.csv` - national daily time series of newly detected putative primary infections (`cnt`), suspected second infections (`reinf`), and total infections (`tot`, the sum of putative primary infections and all suspected reinfections, not just second infections) by specimen receipt date (`date`)
 - `demog_data.csv` - counts of individuals eligible for reinfection (`total`), who have 0 suspected reinfections (`no_reinf`) or >0 suspected reinfections (`reinf`) by province (`province`), age group (5-year bands, `agegrp5`), and sex (M = Male, F = Female, U = Unknown, `sex`)
 
 Derived data files created by certain scripts will also be placed in this subdirectory.

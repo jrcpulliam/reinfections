@@ -32,14 +32,9 @@ attach(jsonlite::read_json(configpth))
 target <- tail(.args, 1)
 
 ts[, date := as.Date(date)]
-ts[, cnt := inc_1]
-ts[, reinf := inc_2]
 ts[, ma_cnt := frollmean(cnt, window_days)]
 ts[, ma_reinf := frollmean(reinf, window_days)]
-ts[, tot := cnt + reinf]
 ts[, ma_tot := frollmean(tot, window_days)]
 ts[, elig := shift(cumsum(cnt), cutoff) - cumsum(reinf)] # eligible for reinfection
-ts[, inc_1 := NULL]
-ts[, inc_2 := NULL]
 
 saveRDS(ts, file = target)
