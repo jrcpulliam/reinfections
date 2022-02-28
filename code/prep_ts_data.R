@@ -34,7 +34,8 @@ target <- tail(.args, 1)
 ts[, date := as.Date(date)]
 ts[, ma_cnt := frollmean(cnt, window_days)]
 ts[, ma_reinf := frollmean(reinf, window_days)]
+ts[, tot := cnt + reinf + third + fourth]
 ts[, ma_tot := frollmean(tot, window_days)]
-ts[, elig := shift(cumsum(cnt), cutoff) - cumsum(reinf)] # eligible for reinfection
+ts[, elig := shift(cumsum(cnt), cutoff-1) - shift(cumsum(reinf), 1, fill = 0)] # eligible for reinfection
 
 saveRDS(ts, file = target)
