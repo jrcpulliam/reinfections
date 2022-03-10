@@ -75,7 +75,7 @@ gd$psrf <- gd$psrf[ -3,]
 figS4b <- (ggplot(data.table(cbind(parameter = rownames(gd$psrf), gd$psrf)))
            + aes(x = as.numeric(`Point est.`), y = parameter)
            + geom_point()
-           + xlim(min(as.numeric(gd$psrf[,1])),max(c(1.5, as.numeric(gd$psrf[,1]))))
+           + xlim(1,max(c(1.5, as.numeric(gd$psrf[,1]))))
            + xlab(expression(hat(R)))
            + ylab('parameter')
            + scale_y_discrete(labels = parse(text = rev(rownames(gd$psrf))))

@@ -37,7 +37,7 @@ fig2b <- (ggplot(tab_prov[province != 'UNKNOWN'])
           + theme_minimal()
           + theme(axis.line = element_blank(),
                   axis.ticks = element_blank(),
-                  axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+                  axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
                   axis.text.y = element_text(size = 10),
                   legend.title = element_text(size = 12),
                   panel.border = element_rect(colour = "black", fill = NA, size = 0.25),
