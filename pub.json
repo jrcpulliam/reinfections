@@ -1,10 +1,8 @@
 {
   "fit_through": "2021-02-28",
-  "max_date": "2021-11-27",
+  "max_date": "2022-01-31",
   "use_w3_max_date": null,
   "use_omicron_date": "2021-10-31",
-  "old_fit_date": "2020-09-30",
-  "old_max_date": "2021-06-30",
   "wave_thresh": 0.15,
   "cutoff": 90,
   "window_days": 7,
@@ -12,6 +10,9 @@
   "eh": {
     "p_obs": 0.1,
     "p_obs_2": 0.5
+  },
+  "polygon": {
+    "n_samps": 1000
   },
   "mcmc": {
     "rand_init": true,

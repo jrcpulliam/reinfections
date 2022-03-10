@@ -52,21 +52,21 @@ output/ts_plot.RDS output/ts_plot.png: code/ts_plot.R data/ts_data_for_analysis.
 utils/wave_defs.RDS utils/plotting_fxns.RData
 	${R}
 
-# Figure 2 (panels B and C)
+# Figure S1 and S2 (panel A)
 output/demog_plot.RDS output/demog_plot.png: code/demog_plot.R \
 data/demog_data_for_display.RData
 	${R}
 
 ### APPROACH 1
 
-# NOTE: Change test.json to pub.json to do a full run; this will overwrite
-# the version of output/posterior_90_null.RData provided in the repository.
+# NOTE: This will overwrite the version of output/posterior_90_null.RData
+# downloaded from Zenodo. Change test.json to pub.json to do a full run.
 output/posterior_90_null.RData: code/mcmc_fit.R data/ts_data_for_analysis.RDS \
 utils/fit_fxn_null.RData test.json
 	${R}
 
-# NOTE: Change test.json to pub.json to do a full run; this will overwrite
-# the version of output/sim_90_null.RDS provided in the repository.
+# NOTE: This will overwrite the version of output/sim_90_null.RDS
+# downloaded from Zenodo. Change test.json to pub.json to do a full run.
 output/sim_90_null.RDS: code/sim_null.R output/posterior_90_null.RData \
 data/ts_data_for_analysis.RDS utils/fit_fxn_null.RData test.json
 	${R}
@@ -80,7 +80,7 @@ output/sim_90_null_dyn.RDS: code/sim_null_dyn.R output/posterior_90_null.RData \
 data/ts_data_for_analysis.RDS utils/fit_fxn_null.RData test.json
 	${R}
 
-# Figure 3
+# Figure 4
 output/sim_plot.RDS output/sim_plot.png: code/sim_plot.R output/sim_90_null.RDS \
 data/ts_data_for_analysis.RDS pub.json utils/plotting_fxns.RData
 	${R}
