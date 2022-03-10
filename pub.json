@@ -12,9 +12,6 @@
     "p_obs_2": 0.5,
     "p_obs_u_scale": 1
   },
-  "polygon": {
-    "n_samps": 1000
-  },
   "mcmc": {
     "rand_init": true,
     "adaptive": false,

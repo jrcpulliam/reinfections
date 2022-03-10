@@ -105,13 +105,13 @@ output/emp_haz_sens_an.RDS: code/sens_an.R data/ts_data_for_analysis.RDS \
 utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS
 	${R}
 
-# Figure 4
+# Figure 5
 output/emp_haz_plot.RDS output/emp_haz_plot.png: code/emp_haz_plot.R \
 data/ts_data_for_analysis.RDS utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS \
 utils/plotting_fxns.RData
 	${R}
 
-# Figure S5
+# Figure S8
 output/emp_haz_sens_an_plot.RDS output/emp_haz_sens_an_plot.png: \
 code/sens_an_plot.R output/emp_haz_sens_an.RDS \
 utils/emp_haz_fxn.RDS pub.json utils/wave_defs.RDS

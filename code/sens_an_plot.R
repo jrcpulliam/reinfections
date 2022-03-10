@@ -39,49 +39,49 @@ attach(jsonlite::read_json(configpth))
 waves <- readRDS(.args[4])
 
 # MEAN RELATIVE HAZARD BY WAVE
-figS5a <- (ggplot(dt[between(mean_rh, 0, 1)])
+figS8a <- (ggplot(dt[between(mean_rh, 0, 1)])
            + aes(x = p_obs, y = p_obs_2, fill = mean_rh_W1)
            + geom_tile()
            + ggtitle('Wave 1')
            + theme_bw()
 )
 
-figS5b <- (ggplot(dt[between(mean_rh, 0, 1)])
+figS8b <- (ggplot(dt[between(mean_rh, 0, 1)])
            + aes(x = p_obs, y = p_obs_2, fill = mean_rh_W2)
            + geom_tile()
            + ggtitle('Wave 2')
            + theme_bw()
 )
 
-figS5c <- (ggplot(dt[between(mean_rh, 0, 1)])
+figS8c <- (ggplot(dt[between(mean_rh, 0, 1)])
            + aes(x = p_obs, y = p_obs_2, fill = mean_rh_W3)
            + geom_tile()
            + ggtitle('Wave 3')
            + theme_bw()
 )
 
-figS5_top <- ((figS5a + figS5b + figS5c) 
+figS8_top <- ((figS8a + figS8b + figS8c) 
               + plot_layout(guides = "collect") 
               & scale_fill_continuous(limits = c(0,1), high = '5')
               & labs(fill = expression(paste(mean~lambda[2]*'/'*lambda[1])))
 )
 
 # PERCENT CHANGE RELATIVE TO WAVE 1
-figS5d <- (ggplot(dt[between(mean_rh, 0, 1)])
+figS8d <- (ggplot(dt[between(mean_rh, 0, 1)])
            + aes(x = p_obs, y = p_obs_2, fill = 100*(mean_rh_W2 - mean_rh_W1)/mean_rh_W1)
            + geom_tile()
            + theme_bw()
            + ggtitle('Wave 2 v. Wave 1')
 )
 
-figS5e <- (ggplot(dt[between(mean_rh, 0, 1)])
+figS8e <- (ggplot(dt[between(mean_rh, 0, 1)])
            + aes(x = p_obs, y = p_obs_2, fill = 100*(mean_rh_W3 - mean_rh_W1)/mean_rh_W1)
            + geom_tile()
            + theme_bw()
            + ggtitle('Wave 3 v. Wave 1')
 )
 
-figS5_bottom <- ((plot_spacer() + figS5d + figS5e) 
+figS8_bottom <- ((plot_spacer() + figS8d + figS8e) 
                  + plot_layout(guides = "collect") 
                  & scale_fill_viridis_c(option = "G", limits = c(-70, 0))
                  & labs(fill='Percent\nchange')
@@ -108,7 +108,7 @@ poly <- rbind(
 )
 names(poly) <- c('p_obs', 'p_obs_2')
 
-figS5 <- (figS5_top / figS5_bottom 
+figS8 <- (figS8_top / figS8_bottom 
           + plot_annotation(tag_levels = 'A') 
           & scale_y_continuous(minor_breaks = seq(0, 1, .05)) 
           & scale_x_continuous(minor_breaks = seq(0, 1, .05))
@@ -122,7 +122,7 @@ figS5 <- (figS5_top / figS5_bottom
 )
 
 if(grepl('RDS', target)){
-  saveRDS(figS5, file = target)
+  saveRDS(figS8, file = target)
 }else{
-  ggsave(figS5, filename = target, width = 8.5, height = 5)
+  ggsave(figS8, filename = target, width = 8.5, height = 5)
 }
