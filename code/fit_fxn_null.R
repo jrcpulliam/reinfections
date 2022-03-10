@@ -16,9 +16,9 @@
 suppressPackageStartupMessages({
 })
 
-.debug <- 'utils'
+.debug <- '.'
 .args <- if (interactive()) sprintf(c(
-  file.path('%s', 'fit_fxn_null.RData') # output
+  "%s/fit_fxn_null.RData" # output
 ), .debug[1]) else commandArgs(trailingOnly = TRUE)
 
 target <- tail(.args, 1)
@@ -28,7 +28,7 @@ expected <- function(parms=disease_params(), cts = ts, use_ma = TRUE, delta = cu
   if(use_ma){
     hz <- lambda * cts$ma_tot
   }else{
-    hz <- lambda * cts$total
+    hz <- lambda * cts$tot
   }
   out <- data.frame(date = cts$date, exp_reinf = rep(0, nrow(cts)))
   for(ii in 1:(nrow(cts) - delta)){
