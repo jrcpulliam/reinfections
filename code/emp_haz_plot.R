@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 
 target <- tail(.args, 1)
 
-ts <- readRDS(.args[1])[date < max(date) - 2]
+ts <- readRDS(.args[1])
 
 emp_haz <- readRDS(.args[2]) # Empirical hazard function
 
@@ -41,24 +41,27 @@ waves <- readRDS(.args[4])
 
 load(.args[5])
 
-ehdt <- emp_haz(ts, eh$p_obs, eh$p_obs_2)
+p_obs_u <- eh$p_obs * eh$p_obs_u_scale
+
+ehdt <- emp_haz(ts, eh$p_obs, eh$p_obs_2, p_obs_u)
 
 geom_wave <- function(ww, dt = waves){
   geom_rect(aes(xmin = min_date, xmax = max_date, ymin = -Inf, ymax = Inf), fill = dt[wave == ww, col], alpha = .7, data = dt[wave == ww], inherit.aes = FALSE)
 }
 
-fig4a <- (ggplot(ehdt[!(is.na(eh_2) | is.na(eh_1))])
+fig5a <- (ggplot(ehdt[!(is.na(eh_2) | is.na(eh_1))])
           + aes(x = date)
           + geom_wave('W1')
           + geom_wave('W2')
           + geom_wave('W3')
-          + geom_line(aes(y = eh_1 / (inc_1 / eh$p_obs + inc_2 / eh$p_obs_2)), size = 1, color = 'black')
-          + geom_line(aes(y = eh_2 / (inc_1 / eh$p_obs + inc_2 / eh$p_obs_2)), size = 1, color = '3')
+          + geom_wave('W4')
+          + geom_line(aes(y = eh_1 / ma_tot_inc), size = 1, color = 'black')
+          + geom_line(aes(y = eh_2 / ma_tot_inc), size = 1, color = '4')
           + xlab('Specimen receipt date')
           + ylab('Hazard coefficient')
 )
 
-fig4b <- (ggplot(ehdt[!(is.na(eh_2) | is.na(eh_1))])
+fig5b <- (ggplot(ehdt[!(is.na(eh_2) | is.na(eh_1))])
           + aes(x = date, y = eh_2 / eh_1)
           + geom_line(size = 1, color = '1')
           + xlab('Specimen receipt date')
@@ -66,28 +69,30 @@ fig4b <- (ggplot(ehdt[!(is.na(eh_2) | is.na(eh_1))])
           + ylim(0, NA)
 )
 
-fig4 <- (fig4a / fig4b 
+fig5 <- (fig5a / fig5b 
          + plot_annotation(tag_levels = 'A')
          & theme_minimal()
          & theme(panel.border = element_rect(colour = "black", fill = NA, size = 0.25)
                  , panel.grid.minor = element_blank())
-         & scale_x_Ms()
+         & scale_x_Ms(labels = function(bs) {
+           gsub("^(.).+$","\\1", month.abb[month(bs)])
+         }, minor_breaks = '1 months')
          & theme(panel.grid.major.x = element_blank()
                  , axis.ticks = element_blank()
                  , panel.grid.minor.x = element_line(color = 'lightgrey', size = .5)
                  , panel.grid.minor.y = element_blank()
                  , panel.grid.major.y = element_line(color = 'lightgrey', size = .5)
-         ) 
-         & geom_vline(xintercept = as.Date('2021-01-01')
-                      , linetype = 2, size = .5, color = '#111111') 
+         )
+         & geom_vline(xintercept = c(as.Date('2021-01-01'), as.Date('2022-01-01'))
+                      , linetype = 2, size = .5, color = '#111111')
          & geom_text(aes(label = year, y = 0)
                      , data = ts[, .(year = format(date, '%Y'), date)][, .(date = min(date)), by = year]
-                     , vjust = -11, hjust = 'left', nudge_x = c(0, 14)
+                     , vjust = -11, hjust = 'left', nudge_x = c(0, 14, 14)
          )
 )
 
 if(grepl('RDS', target)){
-  saveRDS(fig4, file = target)
+  saveRDS(fig5, file = target)
 }else{
-  ggsave(fig4, filename = target, width = 5.5, height = 4)
+  ggsave(fig5, filename = target, width = 5.5, height = 4)
 }

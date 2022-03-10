@@ -9,7 +9,8 @@
   "sa_pop": 59622350,
   "eh": {
     "p_obs": 0.1,
-    "p_obs_2": 0.5
+    "p_obs_2": 0.5,
+    "p_obs_u_scale": 1
   },
   "polygon": {
     "n_samps": 1000
