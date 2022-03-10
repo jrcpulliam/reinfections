@@ -98,11 +98,11 @@ _Approach 2_:
 Files listed below are **not** included in the repository but can be downloaded and placed in the `output` subdirectory:
 
 - `posterior_90_null.RData` - posterior samples from the MCMC fitting procedure (as used in the manuscript)
-    - download v1.0 - link to be added
+    - download v1.0 via [release 1 of the GitHub repository](https://github.com/jrcpulliam/reinfections/releases/tag/v1.0)
     - [download v2.0](https://zenodo.org/record/5745339/files/posterior_90_null_pub.RData?download=1)
     - [download v3.0](https://zenodo.org/record/6108448/files/posterior_90_null_pub.RData?download=1)
 - `sim_90_null.RDS` - simulation results (as used in the manuscript)
-    - download v1.0 - link to be added    
+    - download v1.0 via [release 1 of the GitHub repository](https://github.com/jrcpulliam/reinfections/releases/tag/v1.0)
     - [download v2.0](https://zenodo.org/record/5745339/files/sim_90_null_pub.RDS?download=1)
     - [download v3.0](https://zenodo.org/record/6108448/files/sim_90_null_pub.RDS?download=1)
 
