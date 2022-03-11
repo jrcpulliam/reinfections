@@ -31,8 +31,9 @@ target <- tail(.args, 1)
 af <- dcast(dat, date + group + wave ~ class, value.var = 'value')[sus > 0]
 
 # Poisson model
-poism <- glmer(inc ~ group * wave + (1 | date) + offset(log(sus))
+poism <- glmer(round(inc) ~ group * wave + (1 | date) + offset(log(sus))
                , data = af, family = poisson(link = 'log')
+               , control = glmerControl(optimizer ="bobyqa")
 )
 poisc <- confint(poism)
 
